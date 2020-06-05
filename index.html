@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Unity WebGL Player | FourSeasons</title>
+    <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <link rel="stylesheet" href="TemplateData/style.css">
+    <script src="TemplateData/UnityProgress.js"></script>
+    <script src="Build/UnityLoader.js"></script>
+    <script>
+      var unityInstance = UnityLoader.instantiate("unityContainer", "Build/Xens4sBeatBoard.json", {onProgress: UnityProgress});
+    </script>
+	   <script> 
+  (function( win ){
+	var doc = win.document;
+	if( !location.hash && win.addEventListener ){window.scrollTo( 0, 1 );
+		var scrollTop = 0,
+			getScrollTop = function(){return win.pageYOffset || doc.compatMode === "CSS1Compat" && doc.documentElement.scrollTop || doc.body.scrollTop || 0;},
+			//reset to 0 on bodyready, if needed
+			bodycheck = setInterval(function(){
+				if( doc.body ){
+					clearInterval( bodycheck );
+					scrollTop = getScrollTop();
+					win.scrollTo( 0, scrollTop === 0 ? 0 : 0 );}}, 0 );
+		win.addEventListener( "load", function(){
+			setTimeout(function(){
+					//reset to hide addr bar at onload
+					win.scrollTo( 0, scrollTop === 0 ? 0 : 0 );}, 0);} );}
+})( this );
+  </script>
+  </head>
+  <body>
+    <div class="webgl-content">
+      <div id="unityContainer" style= "margin: 0; padding: 0; width: 100vw; height: 100vh"></div>
+      </div>
+  </body>
+</html>
